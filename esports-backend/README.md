@@ -1,4 +1,4 @@
-# Esports Backend Simple
+# Esports Backend
 
 A small Spring Boot backend for internship demos.
 
