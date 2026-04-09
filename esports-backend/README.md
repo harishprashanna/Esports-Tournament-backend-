@@ -54,8 +54,4 @@ src/main/java/com/example/esports
 mvn spring-boot:run
 ```
 
-## Swagger
 
-Open:
-
-`http://localhost:8080/swagger-ui/index.html`
