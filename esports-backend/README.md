@@ -43,15 +43,6 @@ src/main/java/com/example/esports
 - POST /matches
 - GET /leaderboard
 
-## Run Locally
 
-1. Create a PostgreSQL database named `esports_db`
-2. Run Redis on port `6379`
-3. Update `application.yml` if needed
-4. Run:
-
-```bash
-mvn spring-boot:run
-```
 
 
