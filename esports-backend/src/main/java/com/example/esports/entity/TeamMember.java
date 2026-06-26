@@ -7,13 +7,13 @@ import org.hibernate.annotations.CreationTimestamp;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "registrations", uniqueConstraints = @UniqueConstraint(columnNames = {"team_id", "tournament_id"}))
+@Table(name = "team_members", uniqueConstraints = @UniqueConstraint(columnNames = {"team_id", "user_id"}))
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Registration {
+public class TeamMember {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,10 +24,10 @@ public class Registration {
     private Team team;
 
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = "tournament_id")
-    private Tournament tournament;
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @CreationTimestamp
-    @Column(name = "registered_at", updatable = false)
-    private LocalDateTime registeredAt;
+    @Column(name = "joined_at", updatable = false)
+    private LocalDateTime joinedAt;
 }

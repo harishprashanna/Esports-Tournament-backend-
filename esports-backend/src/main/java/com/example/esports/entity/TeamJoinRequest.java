@@ -1,39 +1,37 @@
 package com.example.esports.entity;
 
+import com.example.esports.enums.JoinRequestStatus;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
-@Table(name = "teams")
+@Table(name = "team_join_requests", uniqueConstraints = @UniqueConstraint(columnNames = {"team_id", "user_id"}))
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Team {
+public class TeamJoinRequest {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true)
-    private String name;
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @JoinColumn(name = "team_id")
+    private Team team;
 
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = "captain_id")
-    private User captain;
+    @JoinColumn(name = "user_id")
+    private User user;
 
-    @Column(columnDefinition = "TEXT")
-    private String description;
-
-    @OneToMany(mappedBy = "team", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     @Builder.Default
-    private List<TeamMember> members = new ArrayList<>();
+    private JoinRequestStatus status = JoinRequestStatus.PENDING;
 
     @CreationTimestamp
     @Column(name = "created_at", updatable = false)
