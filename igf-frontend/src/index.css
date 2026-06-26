@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-igf-black text-igf-text font-sans;
+    background-image: radial-gradient(ellipse at top, #1A0000 0%, #0A0000 60%);
+    min-height: 100vh;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-igf-black;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-igf-red rounded-full;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-igf-red hover:bg-igf-red-bright text-white font-semibold px-6 py-2.5 rounded transition-all duration-200 shadow-red-sm hover:shadow-red-glow;
+  }
+
+  .btn-outline {
+    @apply border border-igf-red text-igf-red hover:bg-igf-red hover:text-white font-semibold px-6 py-2.5 rounded transition-all duration-200;
+  }
+
+  .btn-ghost {
+    @apply text-igf-muted hover:text-igf-text px-4 py-2 rounded transition-colors duration-200;
+  }
+
+  .card {
+    @apply bg-igf-card-bg border border-igf-border rounded-lg shadow-card;
+  }
+
+  .input {
+    @apply bg-igf-dark-bg border border-igf-border text-igf-text rounded px-4 py-2.5 w-full
+           focus:outline-none focus:border-igf-red focus:ring-1 focus:ring-igf-red
+           placeholder:text-igf-muted transition-colors duration-200;
+  }
+
+  .badge {
+    @apply text-xs font-semibold px-2 py-0.5 rounded-full uppercase tracking-wide;
+  }
+
+  .badge-mobile {
+    @apply badge bg-blue-900 text-blue-300;
+  }
+
+  .badge-console {
+    @apply badge bg-purple-900 text-purple-300;
+  }
+
+  .badge-pc {
+    @apply badge bg-green-900 text-green-300;
+  }
+
+  .badge-upcoming   { @apply badge bg-yellow-900 text-yellow-300; }
+  .badge-open       { @apply badge bg-green-900 text-green-300; }
+  .badge-ongoing    { @apply badge bg-igf-dark-red text-igf-crimson; }
+  .badge-completed  { @apply badge bg-gray-800 text-gray-400; }
+
+  .section-title {
+    @apply font-display text-3xl font-bold text-igf-text tracking-wide uppercase;
+  }
+
+  .red-divider {
+    @apply border-t border-igf-border my-6;
+  }
+}
