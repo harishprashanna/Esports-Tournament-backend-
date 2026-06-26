@@ -1,7 +1,7 @@
 package com.example.esports.dto;
 
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,7 +9,8 @@ import lombok.Setter;
 @Setter
 public class TeamRequest {
     @NotBlank
+    @Size(min = 2, max = 40)
     private String name;
-    @NotNull
-    private Long captainId;
+
+    private String description;
 }

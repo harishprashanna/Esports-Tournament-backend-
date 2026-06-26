@@ -1,6 +1,5 @@
 package com.example.esports.dto;
 
-import com.example.esports.enums.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -10,10 +9,10 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AuthResponse {
-    private String token;
-    private Long userId;
-    private String username;
-    private String email;
-    private Role role;
+public class LeaderboardEntry {
+    private int rank;
+    private String teamName;
+    private long wins;
+    private long losses;
+    private long totalMatches;
 }

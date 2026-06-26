@@ -8,11 +8,12 @@ import lombok.Setter;
 @Setter
 public class MatchResultRequest {
     @NotNull
-    private Long tournamentId;
-    @NotNull
-    private Long team1Id;
-    @NotNull
-    private Long team2Id;
+    private Long matchId;
+
     @NotNull
     private Long winnerId;
+
+    private Integer team1Score;
+    private Integer team2Score;
+    private String notes;
 }
